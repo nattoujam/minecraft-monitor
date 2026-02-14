@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_ENDPOINT,
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
     'X-Requested-with': 'XMLHttpRequest',
@@ -9,5 +9,9 @@ const api = axios.create({
   responseType: 'json',
 })
 
-export const getMinecraftStatus = async () => await api.get('/health')
-export const postWakeOnLan = async () => await api.post('/wake')
+export const login = async (data: { username: string; password: string }) =>
+  await api.post('/api/login', data)
+export const logout = async () => await api.post('/api/logout')
+export const checkAuth = async () => await api.get('/api/check_auth')
+export const getMinecraftStatus = async () => await api.get('/api/health')
+export const postWakeOnLan = async () => await api.post('/api/wake')
