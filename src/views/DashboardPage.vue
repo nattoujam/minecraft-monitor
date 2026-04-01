@@ -32,7 +32,7 @@
 import { ref, computed, onBeforeUnmount } from 'vue'
 
 import type { Status } from '@/types'
-import { getMinecraftStatus, postWakeOnLan, logout } from '@/util/minecraftApi'
+import { getMinecraftStatus, logout, postRun } from '@/util/minecraftApi'
 import { useRouter } from 'vue-router'
 import { useToast } from '@/stores/toast'
 
@@ -45,14 +45,14 @@ const lockWoL = ref<boolean>(false)
 const router = useRouter()
 const toastStore = useToast()
 
-const serverStoppped = computed<boolean>(() => health.value?.state === 'stopped')
+const serverStoppped = computed<boolean>(() => health.value?.state !== 'running')
 
 const wake = async () => {
   lockWoL.value = true
-  const res = await postWakeOnLan()
+  const res = await postRun()
 
   if (res?.data.ok) {
-    toastStore.push('Wake On LAN request success.', 'is-info')
+    toastStore.push('Request success.', 'is-info')
     setTimeout(
       () => {
         lockWoL.value = false

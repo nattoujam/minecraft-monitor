@@ -37,6 +37,10 @@ export default ({ mode }: { mode: string }) => {
           target: env.VITE_API_ENDPOINT,
           changeOrigin: true,
         },
+        '/hook/run': {
+          target: env.VITE_API_ENDPOINT,
+          changeOrigin: true,
+        },
       },
     },
   })
