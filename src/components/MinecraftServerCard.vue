@@ -9,13 +9,16 @@
           </figure>
         </div>
         <div class="media-content">
-          <p class="title is-4">{{ props.status.motd ?? 'Minecraft Server' }}</p>
-          <p class="subtitle is-6">{{ props.status.version ?? '' }}</p>
+          <p class="title is-4">{{ props.name }}</p>
+          <p class="subtitle is-6">{{ props.status.motd ?? '' }}</p>
         </div>
       </div>
 
       <div class="content">
-        <p><MinecraftStateTag :state="props.status.state" /></p>
+        <div class="tags">
+          <MinecraftStateTag :state="props.status.state" />
+          <span v-if="props.status.version" class="tag">{{ props.status.version }}</span>
+        </div>
         <template v-if="props.status.state === 'running'">
           <p>
             <span class="icon-text">
@@ -29,6 +32,28 @@
         </template>
       </div>
     </div>
+
+    <div class="card-footer">
+      <div class="card-footer-item">
+        <button
+          v-if="props.status.state !== 'running'"
+          class="button is-fullwidth"
+          :class="{ 'is-loading': props.loading }"
+          :disabled="props.startDisabled"
+          @click="emits('start')"
+        >
+          起動
+        </button>
+        <button
+          v-else
+          class="button is-fullwidth is-danger"
+          :class="{ 'is-loading': props.loading }"
+          @click="emits('stop')"
+        >
+          停止
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,7 +64,15 @@ import type { Status } from '@/types'
 import MinecraftStateTag from '@/components/MinecraftStateTag.vue'
 
 const props = defineProps<{
+  name: string
   status: Status
+  loading: boolean
+  startDisabled: boolean
+}>()
+
+const emits = defineEmits<{
+  (e: 'start'): void
+  (e: 'stop'): void
 }>()
 
 const latencyMs = computed<string>(() => (props.status.latency_ms ?? 0).toFixed(2))

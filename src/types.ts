@@ -1,5 +1,10 @@
 export type State = 'starting' | 'running' | 'stopped' | 'unknown'
 
+export type ServerInfo = {
+  code: string
+  name: string
+}
+
 export type Status = {
   state: State
   online?: number
