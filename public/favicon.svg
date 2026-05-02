@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 37" width="32" height="37">
+  <!-- top face -->
+  <polygon points="16,0 32,8 16,16 0,8" fill="#7fb238"/>
+  <!-- left face -->
+  <polygon points="0,8 16,16 16,37 0,29" fill="#4a7a1e"/>
+  <!-- right face -->
+  <polygon points="32,8 16,16 16,37 32,29" fill="#6b4226"/>
+</svg>

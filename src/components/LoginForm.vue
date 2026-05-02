@@ -1,5 +1,8 @@
 <template>
-  <h1 class="title has-text-centered">Minecraft Monitor</h1>
+  <div class="has-text-centered mb-6">
+    <img src="/favicon.svg" class="mc-icon" alt="logo" />
+    <p class="has-text-white has-text-weight-bold is-size-3 mt-3">Minecraft Monitor</p>
+  </div>
   <form class="box login-box" @submit.prevent="loginRequest">
     <div class="field">
       <div class="control has-icons-left">
@@ -73,8 +76,13 @@ const loginRequest = async () => {
 </script>
 
 <style scoped>
+.mc-icon {
+  width: 5rem;
+  height: auto;
+}
+
 .login-box {
-  max-width: 300px;
+  max-width: 340px;
   margin: 0 auto;
 }
 </style>

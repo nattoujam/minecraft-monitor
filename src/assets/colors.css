@@ -1,0 +1,15 @@
+:root {
+  /* Minecraft color palette */
+  --mc-green: #7fb238;  /* grass block */
+  --mc-bg: #1a1a1a;     /* deep dark background */
+
+  /* Bulma overrides — success → grass green  (H:85 S:52% L:46%) */
+  --bulma-success-h: 85deg;
+  --bulma-success-s: 52%;
+  --bulma-success-l: 46%;
+
+  /* Bulma overrides — dark → coal dark  (H:0 S:0% L:16%) */
+  --bulma-dark-h: 0deg;
+  --bulma-dark-s: 0%;
+  --bulma-dark-l: 16%;
+}

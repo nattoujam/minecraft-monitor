@@ -20,15 +20,15 @@
           <span v-if="props.status.version" class="tag">{{ props.status.version }}</span>
         </div>
         <template v-if="props.status.state === 'running'">
-          <p>
+          <div class="is-flex is-justify-content-space-between is-align-items-center">
             <span class="icon-text">
               <span class="icon">
                 <i class="fas fa-user"></i>
               </span>
               <span>{{ props.status.online }} / {{ props.status.max }}</span>
             </span>
-          </p>
-          <p class="is-size-7">({{ latencyMs }} ms)</p>
+            <span class="has-text-grey is-size-7">{{ latencyMs }} ms</span>
+          </div>
         </template>
       </div>
     </div>
