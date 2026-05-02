@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-dark mc-navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-dark mc-navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item">
         <span class="icon-text">

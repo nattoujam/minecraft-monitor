@@ -140,5 +140,6 @@ init()
 .mc-bg {
   min-height: 100vh;
   background-color: var(--mc-bg);
+  padding-top: calc(3rem + 3.25rem);
 }
 </style>
